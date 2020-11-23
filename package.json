@@ -1,0 +1,15 @@
+{
+    "name": "plans_app",
+    "version": "1.0.0",
+    "description": "Node.js on Docker app for API Platform",
+    "author": "Felipe Dias <felipe.dias@sensedia.com>",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1",
+      "node-fetch": "^2.6.1",
+      "dotenv": "^8.2.0"
+    }
+  }
