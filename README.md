@@ -1,3 +1,46 @@
-curl --location --request GET 'https://manager-mongeral.sensedia.com/api-manager/api/v3/plans?apiIds=52' \
---header 'accept: application/json' \
---header 'Sensedia-Auth: 3fa0a930-64f1-327e-8e96-b34c8ed2177f' \
+
+# Documentação "Quais apps estão usando meu plano?"
+
+## `Tecnologias utilizadas nos componentes de  desenvolvimento` 
+
+* **Node**
+    * Express
+* **WEB Application**
+    * jQuery
+* **Deploy**
+    * Docker
+
+## `INSTALAÇÃO E CONFIGURAÇÃO`
+
+### `Configuração`
+
+- Change .env.example to .env and fill it.
+
+    > cp .env.example .env
+
+### `Instalação DOCKER`
+
+- Building your image
+
+    > docker build -t web/apps_plans .
+
+- Run the image
+
+    > docker run -p 3000:3000 -d web/node-web-app
+
+- Test
+    > docker ps
+    > curl -i localhost:3000/app
+
+
+### `Instalação Desenvolvimento Node
+
+- Instale as dependencias
+    > npm install 
+
+- Rode a aplicação
+    > node server.js
+
+    
+
+
