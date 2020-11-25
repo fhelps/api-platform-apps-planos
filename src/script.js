@@ -86,54 +86,55 @@ async function filterData(){
 
 	var new_data = []
 	
-	if(apis_filter.length == 0 && plans_filter.length == 0 )
+	// if(apis_filter.length == 0 && plans_filter.length == 0 )
 
-	if(apis_filter.length > 0 && plans_filter.length > 0 )
+	// if(apis_filter.length > 0 && plans_filter.length > 0 )
 
-	if(apis_filter.length == 0 && plans_filter.length > 0 )
+	// if(apis_filter.length == 0 && plans_filter.length > 0 )
 
-	if(apis_filter.length > 0 && plans_filter.length == 0 )
+	// if(apis_filter.length > 0 && plans_filter.length == 0 )
 
     for(app of data ){
         if(app.apis.length > 0){
 
             //filtro da api
-            let filter_api = app.apis.filter(api => apis_filter.some(filter_api_id =>  filter_api_id == api.id))
+            // let filter_api = app.apis.filter(api => apis_filter.some(filter_api_id =>  filter_api_id == api.id))
 
-            // //filtro do plano
-			// let filter_plan = []
+            //filtro do plano
+			let filter_plan = []
 
-			// if(app.apis.length > 0)
-			// 	for(api of app.apis){
-			// 		for(plan of api.plans){
-			// 			//console.log(plan)
-			// 			if(plans_filter.some(filter_plan_id => filter_plan_id == plan.id ))
-			// 				filter_plan.push(plan)
-			// 		} 
-			// 	}
+			 if(app.apis.length > 0)
+			 	for(api of app.apis){
+			 		for(plan of api.plans){
+			 			//console.log(plan)
+			 			if(plans_filter.some(filter_plan_id => filter_plan_id == plan.id ))
+			 				filter_plan.push(plan)
+			 		} 
+			 	}
 
             // // console.log(filter_api)
             // // console.log(filter_plan)
 
 
             // if(apis_filter > 0 && plans_filter > 0)
-            //     if(filter_api.length > 0 && filter_plan.length > 0  )
-            //         new_data.push(app)
+            // console.log("filtro do plano: ")
+            // console.log(filter_plan)
+            if(filter_plan.length > 0  )
+                    new_data.push(app)
                     
             // if(apis_filter > 0 || plans_filter > 0)
-            //     if(filter_api.length > 0 || filter_plan.length > 0  )
-
-            new_data.push(app)
+                // if(filter_api.length > 0 || filter_plan.length > 0  )
+                    // new_data.push(app)
             
         }
     }
 
     console.log(new_data)
 
-    // if(!new_data.length == 0)
+    if(!new_data.length == 0)
         $table.bootstrapTable("load", new_data)
-    // else    
-    //     $table.bootstrapTable("load", data)
+    else    
+        $table.bootstrapTable("load", data)
 
 }
 
