@@ -1,0 +1,32 @@
+version: "3"
+services:
+  apps-planos:
+    build: .
+    image: apps-planos
+    restart: always
+    ports:
+      - "3000:3000" # HOST:CONTAINER
+    # volumes: 
+    #   - ./src/utils/userManager.js:/usr/src/app/src/utils/userManager.js
+    #   - ./src/index.js:/usr/src/app/src/index.js
+    #   - /etc/timezone:/etc/timezone:ro
+    #   - /etc/localtime:/etc/localtime:ro
+
+  # frontend-nginx:
+  #   image: nginx:latest
+  #   restart: always
+  #   volumes: 
+  #     - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+  #     #- ./nginx/cert/:/etc/nginx/cert/
+  #     - /etc/letsencrypt/live/faturamento.icarotech.com/privkey.pem:/etc/nginx/cert/privkey.pem
+  #     - /etc/letsencrypt/live/faturamento.icarotech.com/cert.pem:/etc/nginx/cert/cert.pem
+  #     - /etc/timezone:/etc/timezone:ro
+  #     - /etc/localtime:/etc/localtime:ro
+  #   ports:
+  #     - "443:443" # HOST:CONTAINER
+
+  # redirect:
+  #   image: geldim/https-redirect 
+  #   restart: always
+  #   ports:
+  #     - "80:80"
