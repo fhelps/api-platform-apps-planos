@@ -33,10 +33,11 @@ async function getApis(){
 
 async function fillApis(){
     var apis = await getApis()
+    console.log(apis)
 
     for(api of apis){
     
-        var option =`<option value="${api.id}">${api.name} </option>`
+        var option =`<option value="${api.id}">${api.name} ${api.version} </option>`
 
         $("#select_api").append(option);
     }
@@ -64,19 +65,6 @@ async function fillPlans(plans){
 
     $('select').formSelect();
 }
-
-$( "#select_api").change(async function() {
-    console.log("apis filtradas- " + $("#select_api").val());
-
-    await filter_plans()
-
-    filterData()
-});
-
-$( "#select_plan").change(function() {
-    console.log("planos filtrados- " + $("#select_plan").val() );
-    filterData()
-});
 
 async function filterData(){
     var data = await getData()
@@ -134,7 +122,7 @@ async function filterData(){
     if(!new_data.length == 0)
         $table.bootstrapTable("load", new_data)
     else    
-        $table.bootstrapTable("load", data)
+        $table.bootstrapTable("load", [])
 
 }
 
@@ -170,7 +158,19 @@ async function table() {
     var data = await getData()
 
 
-    $table.bootstrapTable({data: data})
+    $table.bootstrapTable({data: []})
 
 }
 
+$( "#select_api").change(async function() {
+    console.log("apis filtradas- " + $("#select_api").val());
+
+    await filter_plans()
+
+    filterData()
+});
+
+$( "#select_plan").change(function() {
+    console.log("planos filtrados- " + $("#select_plan").val() );
+    filterData()
+});
